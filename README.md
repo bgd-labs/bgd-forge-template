@@ -4,7 +4,7 @@ Basic template with prettier and rest configuration
 
 To create a new project using this template run
 ```shell
-$ forge init --template https://github.com/bgd-labs/bgd-forge-template my_new_project
+$ forge init --template bgd-labs/bgd-forge-template my_new_project
 ```
 
 ## Recommended modules
