@@ -2,9 +2,10 @@
 
 Basic template with prettier and rest configuration
 
-## Development
-
-This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+To create a new project using this template run
+```shell
+$ forge init --template https://github.com/bgd-labs/bgd-forge-template my_new_project
+```
 
 ## Recommended modules
 
@@ -18,5 +19,8 @@ This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.
 
 [OpenZeppelin/openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) - another very reputable and well organized source of base contracts for tokens, access control and many others
 
+## Development
+
+This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
 
 
