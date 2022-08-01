@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {Test} from 'forge-std/Test.sol';
 
-import {Ghost} from '../src/contracts/Ghost.sol';
+import {Ghost} from '../contracts/Ghost.sol';
 
 contract GhostTest is Test {
   Ghost public ghost;
@@ -12,7 +12,7 @@ contract GhostTest is Test {
     ghost = new Ghost();
   }
 
-  function shouldBoo() public {
+  function testBoo() public {
     assertEq(ghost.boo(), 'Boo!');
   }
 }
