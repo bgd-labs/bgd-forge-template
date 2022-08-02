@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {Test} from 'forge-std/Test.sol';
 
-import {Ghost} from '../contracts/Ghost.sol';
+import {Ghost} from '../src/contracts/Ghost.sol';
 
 contract GhostTest is Test {
   Ghost public ghost;
