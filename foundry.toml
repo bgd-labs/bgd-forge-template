@@ -6,4 +6,9 @@ libs = ['lib']
 remappings = [
 ]
 
+[rpc_endpoints]
+optimism = "${RPC_OPTIMISM}"
+avalanche = "${RPC_AVALANCHE}"
+polygon = "${RPC_POLYGON}"
+
 # See more config options https://github.com/gakonst/foundry/tree/master/config
