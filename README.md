@@ -22,4 +22,18 @@ $ forge init --template bgd-labs/bgd-forge-template my_new_project
 
 ## Development
 
-This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for detailed instructions on how to install and use Foundry.
+The template ships with sensible default so you can use default `foundry` commands without resorting to `MakeFile`.
+
+### Setup
+
+```sh
+cp .env.example .env
+forge install
+```
+
+### Test
+
+```sh
+forge test
+```
