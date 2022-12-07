@@ -9,7 +9,7 @@ remappings = [
 fs_permissions = [{access = "write", path = "./reports"}]
 
 [rpc_endpoints]
-mainnet="${RPC_MAINNET}"
+mainnet = "${RPC_MAINNET}"
 optimism = "${RPC_OPTIMISM}"
 avalanche = "${RPC_AVALANCHE}"
 polygon = "${RPC_POLYGON}"
