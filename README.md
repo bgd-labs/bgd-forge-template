@@ -47,7 +47,7 @@ Therefore the `Makefile` includes some commands to streamline the diffing proces
 
 #### Download
 
-You can `download` the current contract code of a deployed contract via `make download chain=polygon address=0x00`. This will download the contract source for specified address to `etherscan/chain_address`. This command works for all chains with a etherscan compatible block explorer.
+You can `download` the current contract code of a deployed contract via `make download chain=polygon address=0x00`. This will download the contract source for specified address to `src/etherscan/chain_address`. This command works for all chains with a etherscan compatible block explorer.
 
 #### Git diff
 
