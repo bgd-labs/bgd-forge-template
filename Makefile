@@ -27,15 +27,16 @@ custom_ethereum-testnet := --gas-estimate-multiplier 200
 #  1 - path/file_name
 #  2 - network name
 #  3 - script to call if not the same as network name (optional)
-#  to define custom params per network add vars custom_network-name
-#  to use ledger, set LEDGER=true to env
-#  default to testnet deployment, to run production, set PROD=true to env
+#  To define custom params per network add vars custom_network-name.
+#  To use ledger, set LEDGER=true to env.
+#  By default deploys to the chains specified in (3),
+#  if your contracts are testnet agnostic, set TESTNET=true to env, it will change network names to network_name-testnet
 define deploy_single_fn
 forge script \
  scripts/$(1).s.sol:$(if $(3),$(3),$(shell UP=$(2); echo $${UP} | perl -nE 'say ucfirst')) \
- --rpc-url $(if $(PROD),$(2),$(2)-testnet) --broadcast --verify -vvvv \
+ --rpc-url $(if $(TESTNET),$(2)-testnet,$(2)) --broadcast --verify -vvvv \
  $(if $(LEDGER),$(BASE_LEDGER),$(BASE_KEY)) \
- $(custom_$(if $(PROD),$(2),$(2)-testnet))
+ $(custom_$(if $(TESTNET),$(2)-testnet,$(2)))
 
 endef
 

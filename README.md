@@ -51,7 +51,7 @@ deploy-ghost-multi-chain:
 ```
 And then execute
 ```sh
-PROD=true make deploy-ghost-multi-chain
+make deploy-ghost-multi-chain
 ```
 It will execute `Mainnet` and `Avalanche` scripts located at `scripts/Ghost.s.sol`
 which will deploy `Ghost` contract to `ethereum` and `avalanche` networks respectfully
@@ -66,7 +66,7 @@ deploy-ghost-custom:
 ```
 And then execute
 ```sh
-PROD=true make deploy-ghost-custom
+make deploy-ghost-custom
 ```
 
 It will execute `CustomDeploy` script located at `scripts/Ghost.s.sol`
