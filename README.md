@@ -38,6 +38,40 @@ forge install
 forge test
 ```
 
+## Deploy templating via Makefile
+
+### Multichain deployment
+
+In case of the multichain deployment we recommend to name scripts with the same name as the network you deploy.
+
+For example if you will define
+```Makefile
+deploy-ghost-multi-chain:
+	$(call deploy_fn,Ghost,ethereum avalanche)
+```
+And then execute
+```sh
+make deploy-ghost-multi-chain
+```
+It will execute `Mainnet` and `Avalanche` scripts located at `scripts/Ghost.s.sol`
+which will deploy `Ghost` contract to `ethereum` and `avalanche` networks respectfully
+
+### Custom deployment
+
+If you want to put a custom name for your deployment script
+
+```Makefile
+deploy-ghost-custom:
+	$(call deploy_fn,Ghost,ethereum,CustomDeploy)
+```
+And then execute
+```sh
+make deploy-ghost-custom
+```
+
+It will execute `CustomDeploy` script located at `scripts/Ghost.s.sol`
+which will deploy `Ghost` contract to `ethereum`network
+
 ## Advanced features
 
 ### Diffing
