@@ -6,7 +6,7 @@
 update:; forge update
 
 # Build & test
-build  :; forge build --sizes --via-ir
+build  :; forge build --sizes
 test   :; forge test -vvv
 
 # Utilities
