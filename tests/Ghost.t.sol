@@ -9,7 +9,6 @@ contract GhostTest is Test {
   Ghost public ghost;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('base'), 1491305);
     ghost = new Ghost();
   }
 
