@@ -18,6 +18,9 @@ fantom = "${RPC_FANTOM}"
 harmony = "${RPC_HARMONY}"
 metis = "${RPC_METIS}"
 base = "${RPC_BASE}"
+zkevm = "${RPC_ZKEVM}"
+gnosis = "${RPC_GNOSIS}"
+bnb = "${RPC_BNB}"
 
 [etherscan]
 mainnet = { key="${ETHERSCAN_API_KEY_MAINNET}", chainId=1 }
@@ -27,6 +30,9 @@ polygon = { key="${ETHERSCAN_API_KEY_POLYGON}", chainId=137 }
 arbitrum = { key="${ETHERSCAN_API_KEY_ARBITRUM}", chainId=42161 }
 fantom = { key="${ETHERSCAN_API_KEY_FANTOM}", chainId=250 }
 metis = { key="any", chainId=1088, url='https://andromeda-explorer.metis.io/' }
-base = { key="any", chainId=8453, url='https://basescan.org/' }
+base = { key="${ETHERSCAN_API_KEY_BASE}", chainId=8453 }
+zkevm = { key="${ETHERSCAN_API_KEY_ZKEVM}", chainId=1101 }
+gnosis = { key="${ETHERSCAN_API_KEY_GNOSIS}", chainId=100 }
+bnb = { key="${ETHERSCAN_API_KEY_BNB}", chainId=56 }
 
 # See more config options https://github.com/gakonst/foundry/tree/master/config
