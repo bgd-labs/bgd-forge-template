@@ -9,14 +9,16 @@ contract SimpleERC20 {
     uint256 private _totalSupply;
     mapping(address => uint256) private _balance;
     mapping(address => mapping(address => uint256)) private _allowance;
+    
     function totalSupply() public view returns (uint256) {  
         return _totalSupply;
     }
+    
     function balanceOf(address account) public view returns (uint256) {
         return _balance[account];
     }
-    function allowance(address owner, address spender)
-    public view returns (uint256) {
+    
+    function allowance(address owner, address spender) public view returns (uint256) {
         return _allowance[owner][spender];
     }
 
@@ -32,8 +34,7 @@ contract SimpleERC20 {
         return true;
     }
 
-    function transferFrom(address from,address recipient,uint256 amount) 
-    external returns (bool) {
+    function transferFrom(address from,address recipient,uint256 amount) external returns (bool) {
         if (_allowance[from][msg.sender] != type(uint256).max) {
             _allowance[from][msg.sender] -= amount;}
         _balance[from] -= amount;
