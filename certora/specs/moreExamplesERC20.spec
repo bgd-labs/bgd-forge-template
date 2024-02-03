@@ -5,7 +5,7 @@ See https://docs.certora.com for a complete guide.
 
 run this file with ghostWithERc20s.conf:
 
-certoraRun certora\confs\hostWithERc20s.conf 
+certoraRun certora\confs\ghostWithERc20s.conf 
 
 ***/
 
@@ -27,15 +27,15 @@ methods {
     function _.transferFrom(address,address,uint256) external => DISPATCHER(true);
     
     // functions in other contracts
-	function ERC20Helper.tokenBalanceOf(address token, address user) external returns (uint256) envfree;
+	  function ERC20Helper.tokenBalanceOf(address token, address user) external returns (uint256) envfree;
 
     function simpleERC20.totalSupply() external returns (uint256) envfree;
 }
 
 
 /**
-	@title decrease in system's erc20 balance
-	@dev calls another contract 
+	  @title decrease in system's erc20 balance
+	  @dev calls another contract 
     @dev example for filtering and checking only on methods from the main contract 
 */ 
 rule decreaseInERC20(method f, address token) filtered { f-> f.contract == currentContract } {
@@ -43,7 +43,7 @@ rule decreaseInERC20(method f, address token) filtered { f-> f.contract == curre
     uint256 before = _erc20Helper.tokenBalanceOf(token, currentContract);
 
     env e;
-	calldataarg arg;
+	  calldataarg arg;
     f(e, arg);
 
     uint256 after = _erc20Helper.tokenBalanceOf(token, currentContract);
