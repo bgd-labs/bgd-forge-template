@@ -30,7 +30,7 @@ rule reachability(method f)
 }
 
 /** 
-   	@title  Define and check functions that should never revert
+  @title  Define and check functions that should never revert
 	@dev  use f.selector to state which functions should not revert,e.g.f.selector == sig:balanceOf(address).selector 
 **/  
 definition nonReveritngFunction(method f) returns bool = true; 
@@ -39,7 +39,7 @@ rule noRevert(method f) filtered {f -> nonReveritngFunction(f) }
 {
 	env e;
 	calldataarg arg;
-    //consider auto filtering for non-payable functions 
+  //consider auto filtering for non-payable functions 
 	require e.msg.value == 0; 
 	f@withrevert(e, arg); 
 	assert !lastReverted, "method should not revert";
@@ -60,7 +60,6 @@ rule simpleFrontRunning(method f, method g)
 	storage initialStorage = lastStorage;
 	f(e1, arg); 
 	
-
 	env e2;
 	calldataarg arg2;
 	require e2.msg.sender != e1.msg.sender;
@@ -102,14 +101,14 @@ rule privilegedOperation(method f, address privileged)
 /** 
     @title This rule check with ether is sent out.    
     @dev nativeBalances[u] is u.balance in solidity 
-	@dev currentContract is the main contract under verification
+	  @dev currentContract is the main contract under verification
 */
 rule decreaseInSystemEth(method f) {
    
     uint256 before = nativeBalances[currentContract];
 
     env e;
-	calldataarg arg;
+	  calldataarg arg;
     f(e, arg);
 
     uint256 after = nativeBalances[currentContract];
