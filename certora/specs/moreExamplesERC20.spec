@@ -15,9 +15,9 @@ using SimpleERC20 as simpleERC20;
 
 // Declaration of erc20 functions 
 methods {
-    // When there is an unresolved call it will check all implementaions found in the list of contracts 
-    // See docs for more information on dispatcher summary:
-    // https://docs.certora.com/en/latest/docs/cvl/methods.html?highlight=dispatcher#dispatcher-summaries
+    // When there is an unresolved call it will check all implementations found in the list of contracts 
+    // See docs for more information on dispatcher summaries:
+    // https://docs.certora.com/en/latest/docs/cvl/methods.html
     function _.name() external => DISPATCHER(true);
     function _.symbol() external => DISPATCHER(true);
     function _.decimals() external => DISPATCHER(true);
@@ -51,13 +51,13 @@ rule decreaseInERC20(method f, address token) filtered { f-> f.contract == curre
 
     uint256 after = _erc20Helper.tokenBalanceOf(token, currentContract);
 
-    assert after >= before ||  false ; //fill in cases token can decrease 
+    assert after >= before ||  false, "function decreased the contract's ERC balance";  // replace false with cases where the token can decrease 
 
 } 
 
 /**
     @title sum of erc20 balances is totalSupply 
-    @dev usign a ghost variable and hooks to track changes to _balances
+    @dev using a ghost variable and hooks to track changes to _balances
 **/
 ghost mathint simpleERC20_sumOfBalances  {
   init_state axiom simpleERC20_sumOfBalances == 0;

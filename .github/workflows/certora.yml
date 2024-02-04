@@ -1,5 +1,5 @@
-# A workflow file for running Certora verification through github actions.
-# Find results for each push in the "Actions" tab on the github website.
+# A workflow file for running Certora verification through GitHub actions.
+# Find results for each push in the "Actions" tab on the GitHub website.
 name: Certora verification
 
 on:
@@ -61,11 +61,11 @@ jobs:
             certora/confs/${{ matrix.params.command }} \
             --msg "$(echo $message | sed 's/[^a-zA-Z0-9., _-]/ /g')"
         env:
-          # For this to work, you must set your CERTORAKEY secret on the Github
+          # For this to work, you must set your CERTORAKEY secret on the GitHub
           # website (settings > secrets > actions > new repository secret)
           CERTORAKEY: ${{ secrets.CERTORAKEY }}
 
-      # The following two steps save the output json as a github artifact.
+      # The following two steps save the output json as a GitHub artifact.
       # This can be useful for automation that collects the output.
       - name: Download output json
         if: always()

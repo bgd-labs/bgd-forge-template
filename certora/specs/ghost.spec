@@ -19,14 +19,14 @@ methods {
 
 /** 
 	@title Find and show a path for each method.
-	@dev This is a parametric rule - it checks all public/external methods of the contracts listed.
+	@dev This is a parametric rule - it checks all public/external methods of the contracts listed under `files` in the configuration file.
 **/
 rule reachability(method f)
 {
 	env e;
 	calldataarg args;
 	f(e,args); //takes into account only non reveting cases 
-	satisfy true;
+	satisfy true, "function has a non-reverting path";
 }
 
 /** 
@@ -42,7 +42,7 @@ rule noRevert(method f) filtered {f -> nonReveritngFunction(f) }
   //consider auto filtering for non-payable functions 
 	require e.msg.value == 0; 
 	f@withrevert(e, arg); 
-	assert !lastReverted, "method should not revert";
+	assert !lastReverted, "method should never revert";
 }
 
 
@@ -100,7 +100,7 @@ rule privilegedOperation(method f, address privileged)
 
 /** 
     @title This rule check if ether is sent out.    
-    @dev nativeBalances[u] is u.balance in solidity 
+    @dev nativeBalances[u] is u.balance in Solidity 
 	@dev currentContract is the main contract under verification
 */
 rule decreaseInSystemEth(method f) {
@@ -113,7 +113,7 @@ rule decreaseInSystemEth(method f) {
 
     uint256 after = nativeBalances[currentContract];
 
-    assert after >= before ||  false ; /* fill in cases where eth can decrease */ 
+    assert after >= before ||  false, "function sent eth out of the contract's balance"; /* replace false with cases where eth can decrease */ 
 }
 
 

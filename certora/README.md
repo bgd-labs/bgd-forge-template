@@ -21,24 +21,24 @@ This extension is found in the VSCode extensions/marketplace. It provides syntac
  
 ## Files
 
-Folder `specs` contains the specification files: 
+The folder `specs` contains the specification files: 
 1. `ghost.spec` contains basic rules that are not dependent on any interface.
 2. `moreExmaplesERC20.spec` contains basic examples including ghost, hooks, and multi-contract features.
 
 Folder `confs` contains the configuration files for running the Certora Prover:  
 1. File `ghost.conf` for running `ghost.spec` on `ghost.sol` file.  
 This configuration is suitable for a standalone project, containing:  
-    * external calls are assumed to be non-state changing and returning random value on each call.  
+    * external calls are assumed to be non-state changing and return random values on each call.  
     * loops are unrolled three times.   
     * calls to fallbacks are assumed to be side-effect-free and only update the native balance.   
 2. File `ghostWithERC20s.conf` running `moreExmaplesERC20.spec` on `ghost.sol` with additional ERC20-related contracts.   
-This demonstrates how to setup a project with multi-contract 
+This demonstrates how to set up a project with multi-contract 
 
 
 ## CI Integration
 
 This repository contains a Certora setup in GitHub actions.
-You will need to provide your secret `CERTORAKEY` to GitHub, 
+You will need to provide your secret `CERTORAKEY` to GitHub. 
 
 
 
@@ -50,5 +50,5 @@ To run the mutation test from this directory, run `certoraMutate --prover_conf c
 
 ## CVL Examples and Docs
 See more <a href="https://github.com/Certora/Examples/tree/master/CVLByExample" target="_blank">CVL specification general examples</a>
-and  <a href="https://docs.certora.com" target="_blank">Documenation</a>.
+and <a href="https://docs.certora.com" target="_blank">Documenation</a>.
 More mutation configurations can be found in the [certoraInit repo](https://github.com/Certora/CertoraInit"). 
