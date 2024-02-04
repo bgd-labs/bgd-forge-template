@@ -99,6 +99,6 @@ jobs:
           #- {name: generalRulesOnERC20, command: 'generalRules_ERC20.conf --debug'}
           #- {name: generalRulesOnVAULT, command: 'generalRules_VAULT.conf --debug'}
           - {name: ghostTemplate, command: 'ghost.conf' }
-          - {name: ghostWithERC20, command: 'ghosWithERC20s.conf' }
+          - {name: ghostWithERC20, command: 'ghostWithERC20s.conf' }
 
   

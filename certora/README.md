@@ -45,7 +45,10 @@ You will need to provide your secret `CERTORAKEY` to GitHub.
 ## Mutation Testing
 The Certora Prover is integrated with <a href=https://www.certora.com/gambit>Gambit</a>, an open-source Solidity mutation testing tool. Mutation testing can give you an estimate of the coverage of your verification.
 
-To run the mutation test from this directory, run `certoraMutate --prover_conf certora/confs/ghost.conf --mutation_conf certora/confs/mutation.mconf`
+To run the mutation test from this directory, run:  
+ `certoraMutate --prover_conf certora/confs/ghost.conf --mutation_conf certora/confs/mutation.mconf`. 
+ However, this does not generate any mutates as 'ghost.sol' is too small. 
+ `certoraMutate --prover_conf certora/confs/ghostWithERC20s.conf --mutation_conf certora/confs/mutationWithERC20.mconf ` mutate SimpleERC20 
 
 
 ## CVL Examples and Docs
