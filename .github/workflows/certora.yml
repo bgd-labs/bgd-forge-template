@@ -38,8 +38,8 @@ jobs:
         run: |
           wget https://github.com/ethereum/solidity/releases/download/v0.8.0/solc-static-linux
           sudo mv solc-static-linux /usr/local/bin/solc8.21
-          chmod +x /usr/local/bin/solc8.0
-          ln -s /usr/local/bin/solc8.0 /usr/local/bin/solc
+          chmod +x /usr/local/bin/solc8.21
+          ln -s /usr/local/bin/solc8.21 /usr/local/bin/solc
 
           wget https://github.com/ethereum/solidity/releases/download/v0.8.17/solc-static-linux
           sudo mv solc-static-linux /usr/local/bin/solc8.17
