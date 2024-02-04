@@ -7,20 +7,23 @@ There are two configurations:
 
 ## Run From the Command Line
 
-To run the checks from the command line, first install the Python SDK:
-`pip install certora-cli`
+Follow this guide to install the prover and its dependencies:
+[Installation Guide](https://docs.certora.com/en/latest/docs/user-guide/getting-started/install.html)
 
-Set your Certora Key:  
-`export CERTORAKEY=<personal_access_key>` 
-
-Then run from this directory:  
+Once installations are set, run from this directory:  
 `certoraRun ./certora/confs/ghost.conf`  
+
+## Recommended IDE
+
+We recommended using VSCode with the following extension:
+[Certora Verification Language LSP](https://marketplace.visualstudio.com/items?itemName=Certora.evmspec-lsp)
+This extension is found in the VSCode extensions/marketplace. It provides syntactic support for the Certora Verification Language (CVL) - the language in which we will be writing specifications.
  
 ## Files
 
 Folder `specs` contains the specification files: 
 1. `ghost.spec` contains basic rules that are not dependent on any interface.
-1. `moreExmaplesERC20.spec` contains basic examples including ghost, hooks, and multi-contract features.
+2. `moreExmaplesERC20.spec` contains basic examples including ghost, hooks, and multi-contract features.
 
 Folder `confs` contains the configuration files for running the Certora Prover:  
 1. File `ghost.conf` for running `ghost.spec` on `ghost.sol` file.  
@@ -28,7 +31,7 @@ This configuration is suitable for a standalone project, containing:
     * external calls are assumed to be non-state changing and returning random value on each call.  
     * loops are unrolled three times.   
     * calls to fallbacks are assumed to be side-effect-free and only update the native balance.   
- 1. File `ghostWithERC20s.conf` running `moreExmaplesERC20.spec` on `ghost.sol` with additional ERC20-related contracts.   
+2. File `ghostWithERC20s.conf` running `moreExmaplesERC20.spec` on `ghost.sol` with additional ERC20-related contracts.   
 This demonstrates how to setup a project with multi-contract 
 
 

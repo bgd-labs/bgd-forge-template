@@ -16,6 +16,8 @@ using SimpleERC20 as simpleERC20;
 // Declaration of erc20 functions 
 methods {
     // When there is an unresolved call it will check all implementaions found in the list of contracts 
+    // See docs for more information on dispatcher summary:
+    // https://docs.certora.com/en/latest/docs/cvl/methods.html?highlight=dispatcher#dispatcher-summaries
     function _.name() external => DISPATCHER(true);
     function _.symbol() external => DISPATCHER(true);
     function _.decimals() external => DISPATCHER(true);
@@ -34,9 +36,10 @@ methods {
 
 
 /**
-	  @title decrease in system's erc20 balance
-	  @dev calls another contract 
+    @title decrease in system's erc20 balance
+    @dev calls another contract 
     @dev example for filtering and checking only on methods from the main contract 
+    @notice method f must be defined in the rule signature to be recognized by the filter
 */ 
 rule decreaseInERC20(method f, address token) filtered { f-> f.contract == currentContract } {
    
@@ -53,7 +56,7 @@ rule decreaseInERC20(method f, address token) filtered { f-> f.contract == curre
 } 
 
 /**
-    @title sum of erc20 balances if totalSupply 
+    @title sum of erc20 balances is totalSupply 
     @dev usign a ghost variable and hooks to track changes to _balances
 **/
 ghost mathint simpleERC20_sumOfBalances  {
