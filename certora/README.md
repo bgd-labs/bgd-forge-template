@@ -48,7 +48,7 @@ The Certora Prover is integrated with <a href=https://www.certora.com/gambit>Gam
 To run the mutation test from this directory, run:  
  `certoraMutate --prover_conf certora/confs/ghost.conf --mutation_conf certora/confs/mutation.mconf`. 
  However, this does not generate any mutates as 'ghost.sol' is too small. 
- `certoraMutate --prover_conf certora/confs/ghostWithERC20s.conf --mutation_conf certora/confs/mutationWithERC20.mconf ` mutate SimpleERC20 
+ `certoraMutate --prover_conf certora/confs/ghostWithERC20s.conf --mutation_conf certora/confs/mutationWithERC20.mconf ` mutates `SimpleERC20.sol`.  
 
 
 ## CVL Examples and Docs
