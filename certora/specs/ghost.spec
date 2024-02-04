@@ -8,7 +8,7 @@ See https://docs.certora.com for a complete guide.
 
 /*
     Declaration of methods that are used in the rules. `envfree` indicates that
-    the method is not dependent on the environment (`msg.value`, `msg.sender`).
+    the method is not dependent on the environment (`msg.value`, `msg.sender`, `block.timestamp`).
     Methods that are not declared here are assumed to be dependent on the
     environment.
 */
@@ -51,21 +51,21 @@ rule noRevert(method f) filtered {f -> nonReveritngFunction(f) }
     @dev This property is implemented as a relational property - it compares two different executions on the same state.
 **/ 
 rule simpleFrontRunning(method f, method g) 
-	/// usually a heavy rule, use filtering to decide on which this property should hole 
+	/// usually a heavy rule, use filtering to decide which functions this property should check
 	/* filtered { f-> !f.isView, g-> !g.isView } */ 
 {
 	env e1;
-	calldataarg arg;
+	calldataarg args1;
 
-	storage initialStorage = lastStorage;
-	f(e1, arg); 
+	storage initialStorage = lastStorage; // creating a storage snapshot for later use
+	f(e1, args1); 
 	
 	env e2;
-	calldataarg arg2;
+	calldataarg args2;
 	require e2.msg.sender != e1.msg.sender;
-	g(e2, arg2) at initialStorage;  //roll back to state before calling f 
+	g(e2, args2) at initialStorage; // first rolling back the state to the storage snapshot, then calls a function g
 
-	f@withrevert(e1, arg);
+	f@withrevert(e1, args1); // f is called on the state snapshot + g
 	bool succeeded = !lastReverted;
 
 	assert succeeded, "should be called also if frontrunned";
@@ -81,17 +81,17 @@ rule simpleFrontRunning(method f, method g)
 rule privilegedOperation(method f, address privileged)
 {
 	env e1;
-	calldataarg arg;
+	calldataarg args1;
 	require e1.msg.sender == privileged;
 
 	storage initialStorage = lastStorage;
-	f@withrevert(e1, arg); // privileged succeeds executing candidate privileged operation.
+	f@withrevert(e1, args1); // privileged succeeds executing candidate privileged operation.
 	bool firstSucceeded = !lastReverted;
 
 	env e2;
-	calldataarg arg2;
+	calldataarg args2;
 	require e2.msg.sender != privileged;
-	f@withrevert(e2, arg2) at initialStorage; // unprivileged
+	f@withrevert(e2, args2) at initialStorage; // unprivileged
 	bool secondSucceeded = !lastReverted;
 
 	satisfy  (firstSucceeded && secondSucceeded), "function is not privileged";
@@ -99,9 +99,9 @@ rule privilegedOperation(method f, address privileged)
 
 
 /** 
-    @title This rule check with ether is sent out.    
+    @title This rule check if ether is sent out.    
     @dev nativeBalances[u] is u.balance in solidity 
-	  @dev currentContract is the main contract under verification
+	@dev currentContract is the main contract under verification
 */
 rule decreaseInSystemEth(method f) {
    
