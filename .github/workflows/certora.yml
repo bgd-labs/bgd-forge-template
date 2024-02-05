@@ -83,7 +83,6 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 4
       matrix:
         params:
           # each of these commands is passed to the "Verify rule" step above,

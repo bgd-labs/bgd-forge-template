@@ -39,7 +39,7 @@ rule noRevert(method f) filtered {f -> nonReveritngFunction(f) }
 {
 	env e;
 	calldataarg arg;
-  //consider auto filtering for non-payable functions 
+  // consider auto filtering for non-payable functions by using !f.selector.isPayable
 	require e.msg.value == 0; 
 	f@withrevert(e, arg); 
 	assert !lastReverted, "method should never revert";
@@ -118,5 +118,6 @@ rule decreaseInSystemEth(method f) {
 
 
 // just an example of the structure of an invariant 
+// learn more about invariants in our docs: https://docs.certora.com/en/latest/docs/cvl/invariants.html
 invariant dummy() 
 		nativeBalances[currentContract] >= 0; 

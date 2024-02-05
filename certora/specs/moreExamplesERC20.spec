@@ -58,11 +58,15 @@ rule decreaseInERC20(method f, address token) filtered { f-> f.contract == curre
 /**
     @title sum of erc20 balances is totalSupply 
     @dev using a ghost variable and hooks to track changes to _balances
+    @notice to learn more about ghosts you can read the docs:
+    @notice https://docs.certora.com/en/latest/docs/confluence/anatomy/ghostfunctions.html#initial-axioms-for-uninterpreted-functions
 **/
 ghost mathint simpleERC20_sumOfBalances  {
   init_state axiom simpleERC20_sumOfBalances == 0;
 }
 
+
+// to learn more about using hook in CVL you can read the docs: https://docs.certora.com/en/latest/docs/cvl/hooks.html
 hook Sstore simpleERC20._balance[KEY address addr] uint256 newValue (uint256 oldValue) STORAGE {
     simpleERC20_sumOfBalances = simpleERC20_sumOfBalances + newValue - oldValue;
 }
