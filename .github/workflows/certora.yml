@@ -33,13 +33,12 @@ jobs:
       # - name: Install dependencies
       #   run: yarn
 
-      # Install the appropriate version of solc
+      # Install the appropriate versions of solc
       - name: Install solc
         run: |
-          wget https://github.com/ethereum/solidity/releases/download/v0.8.8/solc-static-linux
+          wget https://github.com/ethereum/solidity/releases/download/v0.8.21/solc-static-linux
           sudo mv solc-static-linux /usr/local/bin/solc8.21
           chmod +x /usr/local/bin/solc8.21
-          ln -s /usr/local/bin/solc8.21 /usr/local/bin/solc
 
           wget https://github.com/ethereum/solidity/releases/download/v0.8.17/solc-static-linux
           sudo mv solc-static-linux /usr/local/bin/solc8.17
@@ -83,7 +82,6 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 4
       matrix:
         params:
           # each of these commands is passed to the "Verify rule" step above,
