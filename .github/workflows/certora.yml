@@ -36,13 +36,16 @@ jobs:
       # Install the appropriate versions of solc
       - name: Install solc
         run: |
-          wget https://github.com/ethereum/solidity/releases/download/v0.8.21/solc-static-linux
-          sudo mv solc-static-linux /usr/local/bin/solc8.21
-          chmod +x /usr/local/bin/solc8.21
+          pip3 install solc-select
+          solc-select intall 0.8.21
+          solc-select use 0.8.21
+          # wget https://github.com/ethereum/solidity/releases/download/v0.8.21/solc-static-linux
+          # sudo mv solc-static-linux /usr/local/bin/solc8.21
+          # chmod +x /usr/local/bin/solc8.21
 
-          wget https://github.com/ethereum/solidity/releases/download/v0.8.17/solc-static-linux
-          sudo mv solc-static-linux /usr/local/bin/solc8.17
-          chmod +x /usr/local/bin/solc8.17
+          # wget https://github.com/ethereum/solidity/releases/download/v0.8.17/solc-static-linux
+          # sudo mv solc-static-linux /usr/local/bin/solc8.17
+          # chmod +x /usr/local/bin/solc8.17
 
       # Do the actual verification.  The `run` field could be simply
       #
