@@ -37,7 +37,7 @@ jobs:
       - name: Install solc
         run: |
           pip3 install solc-select
-          solc-select intall 0.8.21
+          solc-select install 0.8.21
           solc-select use 0.8.21
           # wget https://github.com/ethereum/solidity/releases/download/v0.8.21/solc-static-linux
           # sudo mv solc-static-linux /usr/local/bin/solc8.21
