@@ -36,18 +36,14 @@ jobs:
       # Install the appropriate versions of solc
       - name: Install solc
         run: |
-          wget https://github.com/ethereum/solidity/releases/download/v0.8.21/solc-static-linux
-          sudo mv solc-static-linux /usr/local/bin/solc8.21
-          chmod +x /usr/local/bin/solc8.21
-
-          wget https://github.com/ethereum/solidity/releases/download/v0.8.17/solc-static-linux
-          sudo mv solc-static-linux /usr/local/bin/solc8.17
-          chmod +x /usr/local/bin/solc8.17
+          pip3 install solc-select
+          solc-select install 0.8.21
+          solc-select use 0.8.21
 
       # Do the actual verification.  The `run` field could be simply
       #
       #   certoraRun certora/conf/${{ matrix.params }}
-      # 
+      #
       # but we do a little extra work to get the commit messages into the
       # `--msg` argument to `certoraRun`
       #
@@ -99,4 +95,4 @@ jobs:
           - {name: ghostTemplate, command: 'ghost.conf' }
           - {name: ghostWithERC20, command: 'ghostWithERC20s.conf' }
 
-  
+
