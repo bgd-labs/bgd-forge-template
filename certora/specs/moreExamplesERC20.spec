@@ -67,7 +67,7 @@ ghost mathint simpleERC20_sumOfBalances  {
 
 
 // to learn more about using hook in CVL you can read the docs: https://docs.certora.com/en/latest/docs/cvl/hooks.html
-hook Sstore simpleERC20._balance[KEY address addr] uint256 newValue (uint256 oldValue) STORAGE {
+hook Sstore simpleERC20._balance[KEY address addr] uint256 newValue (uint256 oldValue) {
     simpleERC20_sumOfBalances = simpleERC20_sumOfBalances + newValue - oldValue;
 }
 

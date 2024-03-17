@@ -1,9 +1,0 @@
-{
-    "gambit": [
-        {
-            "filename" : "../helpers/SimpleERC20.sol",
-            "num_mutants": 5
-        }
-    ],
-    "msg": "basic mutation configuration"
-} 

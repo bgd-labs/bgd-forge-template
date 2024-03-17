@@ -1,9 +1,0 @@
-{
-    "gambit": [
-        {
-            "filename" : "../../src/contracts/Ghost.sol",
-            "num_mutants": 1
-        }
-    ],
-    "msg": "basic mutation configuration"
-} 
