@@ -15,3 +15,6 @@ node_modules
 
 # ignore foundry deploy artifacts
 broadcast/
+
+#certora temp files
+.certora_internal
