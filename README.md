@@ -34,6 +34,26 @@ cp .env.example .env
 forge install
 ```
 
+#### Keystore Wallet
+
+For deployments, the template uses Foundry's encrypted keystore instead of plaintext private keys. The template defaults to a keystore named `deployer`, but you can use any name you want — just make sure `KEYSTORE_ACCOUNT` matches.
+
+To create the keystore:
+
+```sh
+cast wallet import deployer --interactive
+```
+
+You will be prompted for your private key and a password to encrypt it:
+
+```
+Enter private key:
+Enter password:
+`deployer` keystore was saved successfully. Address: 0x...
+```
+
+Then set `KEYSTORE_ACCOUNT` and `KEYSTORE_PASSWORD` in your `.env`.
+
 ### Build & Test
 
 ```sh
