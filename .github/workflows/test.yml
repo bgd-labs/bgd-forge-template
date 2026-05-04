@@ -15,7 +15,7 @@ jobs:
     with:
       compareGas: true
       compareSize: true
-      compareLcov: true
+      compareLcov: false
     secrets: inherit
   codecov:
     needs: test
