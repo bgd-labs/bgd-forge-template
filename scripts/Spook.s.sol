@@ -2,16 +2,16 @@
 pragma solidity ^0.8.0;
 
 import {Script} from 'forge-std/Script.sol';
-import {Ghost} from '../src/contracts/Ghost.sol';
+import {Spook} from '../src/contracts/Spook.sol';
 
 /**
- * make deploy-ledger contract=scripts/Ghost.s.sol:Deploy chain=mainnet
- * make deploy-keystore contract=scripts/Ghost.s.sol:Deploy chain=mainnet
+ * make deploy-ledger contract=scripts/Spook.s.sol:Deploy chain=mainnet
+ * make deploy-keystore contract=scripts/Spook.s.sol:Deploy chain=mainnet
  */
 contract Deploy is Script {
   function run() external {
     vm.startBroadcast();
-    new Ghost();
+    new Spook();
     vm.stopBroadcast();
   }
 }

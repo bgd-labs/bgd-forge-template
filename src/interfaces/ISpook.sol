@@ -2,11 +2,11 @@
 pragma solidity ^0.8.0;
 
 /**
- * @title IGhost
+ * @title ISpook
  * @author BGD Labs
- * @notice Interface for the Ghost contract
+ * @notice Interface for the Spook contract
  */
-interface IGhost {
+interface ISpook {
   /**
    * @notice Returns a spooky greeting
    * @return A string with the greeting

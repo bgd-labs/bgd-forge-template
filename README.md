@@ -1,6 +1,6 @@
 # BGD forge template
 
-[![Coverage badge](./report/coverage.svg)](https://bgd-labs.github.io/bgd-forge-template/)
+[![codecov](https://codecov.io/gh/bgd-labs/bgd-forge-template/graph/badge.svg)](https://codecov.io/gh/bgd-labs/bgd-forge-template)
 
 Foundry-based Solidity project template with built-in formatting, linting, coverage, and gas reporting.
 
@@ -74,13 +74,13 @@ make lint       # run the forge linter
 
 ### Coverage
 
-Generate an lcov coverage report with an HTML output (requires `lcov` and `genhtml` installed):
+Generate an lcov coverage report (`lcov.info`):
 
 ```sh
 make coverage
 ```
 
-This generates an HTML report in `report/`.
+In CI, the lcov report is uploaded to [Codecov](https://about.codecov.io/) — see the badge at the top of the README.
 
 ### Gas Reporting
 
