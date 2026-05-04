@@ -12,7 +12,7 @@ contract GhostTest is Test {
     ghost = new Ghost();
   }
 
-  function testBoo() public {
+  function testBoo() public view {
     assertEq(ghost.boo(), 'Boo!');
   }
 }
