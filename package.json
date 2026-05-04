@@ -5,14 +5,18 @@
     "type": "git",
     "url": "git+https://github.com/bgd-labs/bgd-forge-template.git"
   },
+  "scripts": {
+    "prepare": "lefthook install"
+  },
   "keywords": [],
   "author": "BGD labs",
   "license": "MIT",
-  "devDependencies": {
-    "lefthook": "^1.8.4"
-  },
   "bugs": {
     "url": "https://github.com/bgd-labs/bgd-forge-template/issues"
   },
+  "devDependencies": {
+    "lefthook": "^1.8.4"
+  },
+  "packageManager": "pnpm@10.29.2",
   "homepage": "https://github.com/bgd-labs/bgd-forge-template#readme"
 }
