@@ -14,10 +14,8 @@ fmt       :; forge fmt
 fmt-check :; forge fmt --check
 lint      :; forge lint
 
-# Gas reports & snapshots
-gas-report :; forge test --gas-report
-snapshot   :; forge snapshot
-snapshot-diff :; forge snapshot --diff
+# Gas reports
+gas-report :; forge test --mp 'tests/gas/*.t.sol' --isolate
 
 # Coverage
 coverage-base :; forge coverage --report lcov --no-match-coverage "(scripts|tests)"

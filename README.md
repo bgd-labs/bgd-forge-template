@@ -85,9 +85,7 @@ This generates an HTML report in `report/`.
 ### Gas Reporting
 
 ```sh
-make gas-report    # print gas report for all contracts
-make snapshot      # create .gas-snapshot baseline
-make snapshot-diff # compare current gas usage against baseline
+make gas-report    # run gas report snapshots
 ```
 
 ### Documentation
