@@ -32,6 +32,7 @@ The template ships with sensible defaults so you can use default `foundry` comma
 ```sh
 cp .env.example .env
 forge install
+pnpm install # installs lefthook for pre-commit hooks
 ```
 
 #### Keystore Wallet

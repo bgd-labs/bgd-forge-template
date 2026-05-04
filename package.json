@@ -8,6 +8,9 @@
   "keywords": [],
   "author": "BGD labs",
   "license": "MIT",
+  "devDependencies": {
+    "lefthook": "^1.8.4"
+  },
   "bugs": {
     "url": "https://github.com/bgd-labs/bgd-forge-template/issues"
   },
