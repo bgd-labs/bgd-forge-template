@@ -18,14 +18,7 @@ lint      :; forge lint
 gas-report :; forge test --mp 'tests/gas/*.t.sol' --isolate
 
 # Coverage
-coverage-base :; forge coverage --report lcov --no-match-coverage "(scripts|tests)"
-coverage-report :; genhtml ./lcov.info -o report --branch-coverage --rc derive_function_end_line=0
-coverage-badge :; coverage=$$(awk -F '[<>]' '/headerCovTableEntryHi/{print $$3}' ./report/index.html | sed 's/[^0-9.]//g' | head -n 1); \
-	wget -O ./report/coverage.svg "https://img.shields.io/badge/coverage-$${coverage}%25-brightgreen"
-coverage :
-	make coverage-base
-	make coverage-report
-	make coverage-badge
+coverage :; forge coverage --report lcov --no-match-coverage "(scripts|tests)"
 
 # Documentation
 doc :; forge doc --build

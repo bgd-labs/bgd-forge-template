@@ -17,3 +17,21 @@ jobs:
       compareSize: true
       compareLcov: true
     secrets: inherit
+  codecov:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: lcov-report
+          path: lcov
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@ea99328d1c4d5f39fda7cbffe104afd6906c50b0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
+          files: ./lcov/lcov.info
