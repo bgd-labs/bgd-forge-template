@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import '../interfaces/IGhost.sol';
+import '../interfaces/ISpook.sol';
 
 /**
- * @title Ghost
+ * @title Spook
  * @author BGD Labs
  * @notice Example contract for the BGD forge template
  */
-contract Ghost is IGhost {
-  /// @inheritdoc IGhost
+contract Spook is ISpook {
+  /// @inheritdoc ISpook
   function boo() external pure returns (string memory) {
     return 'Boo!';
   }

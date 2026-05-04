@@ -12,10 +12,6 @@ jobs:
     uses: bgd-labs/github-workflows/.github/workflows/foundry-lint.yml@main
   test:
     uses: bgd-labs/github-workflows/.github/workflows/foundry-test.yml@main
-    with:
-      compareGas: true
-      compareSize: true
-      compareLcov: false
     secrets: inherit
   codecov:
     needs: test
