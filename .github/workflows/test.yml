@@ -1,4 +1,4 @@
-name: Main workflow
+name: Test
 
 on:
   pull_request:
@@ -13,5 +13,7 @@ jobs:
   test:
     uses: bgd-labs/github-workflows/.github/workflows/foundry-test.yml@main
     with:
+      compareGas: true
+      compareSize: true
       compareLcov: false
     secrets: inherit
